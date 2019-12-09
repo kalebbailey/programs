@@ -18,3 +18,4 @@ C:\Users\Kaleb Bailey\source\repos\MazeGameProject\MazeGameProject\bin\Debug\Lea
 C:\Users\Kaleb Bailey\source\repos\MazeGameProject\MazeGameProject\obj\Debug\MazeGameProject.MainMenu.resources
 C:\Users\Kaleb Bailey\source\repos\MazeGameProject\MazeGameProject\obj\Debug\MazeGameProject.frmMaze2.resources
 C:\Users\Kaleb Bailey\source\repos\MazeGameProject\MazeGameProject\obj\Debug\MazeGameProject.frmMaze3.resources
+C:\Users\Kaleb Bailey\source\repos\MazeGameProject\MazeGameProject\obj\Debug\MazeGameProject.Leaderboard3.resources

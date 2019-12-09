@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlGameBoard = new System.Windows.Forms.Panel();
+            this.label119 = new System.Windows.Forms.Label();
             this.label116 = new System.Windows.Forms.Label();
             this.label115 = new System.Windows.Forms.Label();
             this.label114 = new System.Windows.Forms.Label();
@@ -151,7 +152,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label117 = new System.Windows.Forms.Label();
             this.label118 = new System.Windows.Forms.Label();
-            this.label119 = new System.Windows.Forms.Label();
             this.label120 = new System.Windows.Forms.Label();
             this.label121 = new System.Windows.Forms.Label();
             this.pnlGameBoard.SuspendLayout();
@@ -283,6 +283,15 @@
             this.pnlGameBoard.Name = "pnlGameBoard";
             this.pnlGameBoard.Size = new System.Drawing.Size(956, 933);
             this.pnlGameBoard.TabIndex = 0;
+            // 
+            // label119
+            // 
+            this.label119.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.label119.Location = new System.Drawing.Point(-2, 926);
+            this.label119.Name = "label119";
+            this.label119.Size = new System.Drawing.Size(956, 5);
+            this.label119.TabIndex = 117;
+            this.label119.MouseEnter += new System.EventHandler(this.wall_MouseEnter);
             // 
             // label116
             // 
@@ -1378,15 +1387,6 @@
             this.label118.TabIndex = 117;
             this.label118.MouseEnter += new System.EventHandler(this.wall_MouseEnter);
             // 
-            // label119
-            // 
-            this.label119.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.label119.Location = new System.Drawing.Point(-2, 926);
-            this.label119.Name = "label119";
-            this.label119.Size = new System.Drawing.Size(956, 5);
-            this.label119.TabIndex = 117;
-            this.label119.MouseEnter += new System.EventHandler(this.wall_MouseEnter);
-            // 
             // label120
             // 
             this.label120.BackColor = System.Drawing.SystemColors.HotTrack;
@@ -1421,6 +1421,7 @@
             this.Location = new System.Drawing.Point(1000, 900);
             this.Name = "frmMaze";
             this.Text = "Maze Level 1";
+            this.MouseEnter += new System.EventHandler(this.wall_MouseEnter);
             this.pnlGameBoard.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -12,43 +12,44 @@ using System.Configuration;
 
 namespace MazeGameProject
 {
-
-    public partial class Leaderboard : Form
+    public partial class Leaderboard3 : Form
     {
-        
         SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MazeGameProject.Properties.Settings.LeaderboardConnectionString"].ConnectionString);
 
-        
-        public Leaderboard()
+        public Leaderboard3()
         {
             InitializeComponent();
-            frmMaze.frmObj.timer1.Stop();
+            frmMaze3.frmObj.timer.Stop();
         }
 
-        private void Leaderboard_Load(object sender, EventArgs e)
+        private void leaderboard3BindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'leaderboardDataSet.Leaderboard' table. You can move, or remove it, as needed.
-            this.leaderboardTableAdapter.Fill(this.leaderboardDataSet.Leaderboard);
+            this.Validate();
+            this.leaderboard3BindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.leaderboard3DataSet);
+
+        }
+
+        private void Leaderboard3_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'leaderboard3DataSet.Leaderboard3' table. You can move, or remove it, as needed.
+            this.leaderboard3TableAdapter.Fill(this.leaderboard3DataSet.Leaderboard3);
             btnSubmit.Enabled = true;
             txtUsername.Enabled = true;
             txtUsername.Text = "anon";
         }
 
-        private void btnContinue_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            
-        }
-        
+
+
         private void AddToLeaderBoard()
         {
             try
             {
                 if (sqlCon.State == ConnectionState.Closed)
                     sqlCon.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO Leaderboard (Name, Time) VALUES (@Name, @Time);", sqlCon);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Leaderboard3 (Name, Time) VALUES (@Name, @Time);", sqlCon);
                 cmd.Parameters.AddWithValue("@Name", txtUsername.Text);
-                cmd.Parameters.AddWithValue("@Time", frmMaze.frmObj.i);
+                cmd.Parameters.AddWithValue("@Time", frmMaze3.frmObj.i);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Time successfully submitted! Click on the ''Time'' column to see the best or worst time!", "SUCCESS!");
             }
@@ -62,24 +63,22 @@ namespace MazeGameProject
             }
         }
 
-        
-
         private void DisplayLeaderBoard()
         {
             try
             {
                 if (sqlCon.State == ConnectionState.Closed)
                     sqlCon.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Leaderboard", sqlCon);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Leaderboard3", sqlCon);
                 SqlDataAdapter sqlDA = new SqlDataAdapter();
                 sqlDA.SelectCommand = cmd;
                 DataTable newDT = new DataTable();
                 sqlDA.Fill(newDT);
                 BindingSource bSource = new BindingSource();
                 bSource.DataSource = newDT;
-                leaderboardDataGridView.DataSource = bSource;
+                leaderboard3DataGridView.DataSource = bSource;
                 sqlDA.Update(newDT);
-                
+
             }
             catch (Exception ex)
             {
@@ -89,6 +88,11 @@ namespace MazeGameProject
             {
                 sqlCon.Close();
             }
+        }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -103,10 +107,9 @@ namespace MazeGameProject
             }
             else
             {
-                MessageBox.Show("Make sure to enter a name! If you would not like to submit, click continue.","Error!");
+                MessageBox.Show("Make sure to enter a name! If you would not like to submit, click continue.", "Error!");
 
             }
-            
         }
     }
 }

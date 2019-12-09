@@ -49,6 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -85,6 +86,17 @@
     <Compile Include="Leaderboard.Designer.cs">
       <DependentUpon>Leaderboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Leaderboard3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leaderboard3.Designer.cs">
+      <DependentUpon>Leaderboard3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leaderboard3DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Leaderboard3DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LeaderboardDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -111,6 +123,9 @@
     <EmbeddedResource Include="Leaderboard.resx">
       <DependentUpon>Leaderboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Leaderboard3.resx">
+      <DependentUpon>Leaderboard3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,6 +138,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Leaderboard3DataSet.xsc">
+      <DependentUpon>Leaderboard3DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Leaderboard3DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Leaderboard3DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Leaderboard3DataSet.xss">
+      <DependentUpon>Leaderboard3DataSet.xsd</DependentUpon>
+    </None>
     <None Include="LeaderboardDataSet.xsc">
       <DependentUpon>LeaderboardDataSet.xsd</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
